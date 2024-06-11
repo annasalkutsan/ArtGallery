@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "Hash": "ESCIpeFACiC9VpRALL3zaUTorMt/1Qymd/ENBYBP2uY=",
+  "Source": "Infrastructure",
+  "BasePath": "_content/Infrastructure",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Infrastructure\\wwwroot",
+      "Source": "Infrastructure",
+      "ContentRoot": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\",
+      "BasePath": "_content/Infrastructure",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\6eaa85bc-c576-4af1-9a10-ac263d02573e.jpg",
+      "SourceId": "Infrastructure",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\",
+      "BasePath": "_content/Infrastructure",
+      "RelativePath": "images/6eaa85bc-c576-4af1-9a10-ac263d02573e.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\6eaa85bc-c576-4af1-9a10-ac263d02573e.jpg"
+    },
+    {
+      "Identity": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\7e7a0d20-820d-4d24-888a-f5e9f0a126b4.jpg",
+      "SourceId": "Infrastructure",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\",
+      "BasePath": "_content/Infrastructure",
+      "RelativePath": "images/7e7a0d20-820d-4d24-888a-f5e9f0a126b4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\7e7a0d20-820d-4d24-888a-f5e9f0a126b4.jpg"
+    },
+    {
+      "Identity": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\f0edc509-e265-49d0-9764-14860e718abb.jpg",
+      "SourceId": "Infrastructure",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\",
+      "BasePath": "_content/Infrastructure",
+      "RelativePath": "images/f0edc509-e265-49d0-9764-14860e718abb.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\f0edc509-e265-49d0-9764-14860e718abb.jpg"
+    }
+  ]
+}

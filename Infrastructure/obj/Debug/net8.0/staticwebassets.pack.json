@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\6eaa85bc-c576-4af1-9a10-ac263d02573e.jpg",
+      "PackagePath": "staticwebassets\\images\\6eaa85bc-c576-4af1-9a10-ac263d02573e.jpg"
+    },
+    {
+      "Id": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\7e7a0d20-820d-4d24-888a-f5e9f0a126b4.jpg",
+      "PackagePath": "staticwebassets\\images\\7e7a0d20-820d-4d24-888a-f5e9f0a126b4.jpg"
+    },
+    {
+      "Id": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\f0edc509-e265-49d0-9764-14860e718abb.jpg",
+      "PackagePath": "staticwebassets\\images\\f0edc509-e265-49d0-9764-14860e718abb.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Infrastructure.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Infrastructure.props",
+      "PackagePath": "build\\Infrastructure.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Infrastructure.props",
+      "PackagePath": "buildMultiTargeting\\Infrastructure.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Infrastructure.props",
+      "PackagePath": "buildTransitive\\Infrastructure.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
