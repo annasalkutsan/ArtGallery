@@ -35,7 +35,7 @@ public class AuthorService
         var existingUser = _authorRepository.GetAll().Any(u => u.FullName.FirstName == request.FullName.FirstName);
         if (existingUser)
         {
-            throw new InvalidOperationException("Author with the same nickname or email already exists.");
+            throw new InvalidOperationException("Author with the same Full Name already exists.");
         }
         var author = _mapper.Map<Author>(request);
         var createdAuthor = _authorRepository.Create(author);
