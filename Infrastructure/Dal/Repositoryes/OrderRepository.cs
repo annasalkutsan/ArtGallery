@@ -1,7 +1,9 @@
-﻿using Application.Interfaces;
+﻿using Application.DTO.User;
+using Application.Interfaces;
 using Domain.Entities;
 using Domain.Primitives;
 using Infrastructure.Dal.EntityFramework;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Dal.Repositoryes;
 
@@ -68,5 +70,18 @@ public class OrderRepository : IOrderRepository
     public ICollection<Order> GetOrdersInDevelopment()
     {
         return _dbContext.Orders.Where(o => o.Status == Status.InDevelopment).ToList();
+    }
+    
+    // Новый метод для получения заказов с пагинацией
+    public async Task<(List<Order>, int)> GetPagedOrdersAsync(int pageNumber, int pageSize)
+    {
+        var totalOrders = await _dbContext.Orders.CountAsync();
+        var orders = await _dbContext.Orders
+            .OrderBy(o => o.OrderDate)
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (orders, totalOrders);
     }
 }

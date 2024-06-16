@@ -77,4 +77,12 @@ namespace Infrastructure.Api;
             var orders = orderService.GetOrdersInDevelopment();
             return Ok(orders);
         }
+        
+        // Метод для получения заказов с пагинацией
+        [HttpGet("GetPagedOrders")]
+        public async Task<IActionResult> GetPagedOrders([FromServices] OrderService orderService, int pageNumber = 1, int pageSize = 10)
+        {
+            var pagedOrders = await orderService.GetPagedOrdersAsync(pageNumber, pageSize);
+            return Ok(pagedOrders);
+        }
     }

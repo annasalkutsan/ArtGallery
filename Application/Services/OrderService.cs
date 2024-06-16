@@ -93,4 +93,18 @@ public class OrderService
             var orders = _orderRepository.GetOrdersInDevelopment();
             return _mapper.Map<ICollection<OrderResponse>>(orders);
         }
+        // Новый метод для получения заказов с пагинацией
+        public async Task<PaginatedOrderResponse> GetPagedOrdersAsync(int pageNumber, int pageSize)
+        {
+            var (orders, totalOrders) = await _orderRepository.GetPagedOrdersAsync(pageNumber, pageSize);
+            var response = _mapper.Map<List<OrderResponse>>(orders);
+
+            return new PaginatedOrderResponse
+            {
+                Orders = response,
+                TotalOrders = totalOrders,
+                PageNumber = pageNumber,
+                PageSize = pageSize
+            };
+        }
     }

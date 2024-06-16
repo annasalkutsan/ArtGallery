@@ -8,4 +8,5 @@ public interface IOrderRepository:IRepository<Order>
     ICollection<Order> GetOrdersNotStarted();
     ICollection<Order> GetOrdersReady();
     ICollection<Order> GetOrdersInDevelopment();
+    Task<(List<Order>, int)> GetPagedOrdersAsync(int pageNumber, int pageSize);
 }
