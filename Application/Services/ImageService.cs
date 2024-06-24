@@ -1,8 +1,5 @@
-﻿
-using Application.DTO.User;
-using Application.Interfaces;
+﻿using Application.Interfaces;
 using AutoMapper;
-using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 
 namespace Application.Services;

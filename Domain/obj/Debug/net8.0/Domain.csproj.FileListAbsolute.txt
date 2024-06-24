@@ -10,3 +10,16 @@ D:\Рабочий стол\ArtGallery\Domain\obj\Debug\net8.0\Domain.dll
 D:\Рабочий стол\ArtGallery\Domain\obj\Debug\net8.0\refint\Domain.dll
 D:\Рабочий стол\ArtGallery\Domain\obj\Debug\net8.0\Domain.pdb
 D:\Рабочий стол\ArtGallery\Domain\obj\Debug\net8.0\ref\Domain.dll
+D:\Program Files\Projects\C#\ArtGallery\Domain\bin\Debug\net8.0\Domain.deps.json
+D:\Program Files\Projects\C#\ArtGallery\Domain\bin\Debug\net8.0\Domain.dll
+D:\Program Files\Projects\C#\ArtGallery\Domain\bin\Debug\net8.0\Domain.pdb
+D:\Program Files\Projects\C#\ArtGallery\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+D:\Program Files\Projects\C#\ArtGallery\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Program Files\Projects\C#\ArtGallery\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+D:\Program Files\Projects\C#\ArtGallery\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+D:\Program Files\Projects\C#\ArtGallery\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+D:\Program Files\Projects\C#\ArtGallery\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+D:\Program Files\Projects\C#\ArtGallery\Domain\obj\Debug\net8.0\Domain.dll
+D:\Program Files\Projects\C#\ArtGallery\Domain\obj\Debug\net8.0\refint\Domain.dll
+D:\Program Files\Projects\C#\ArtGallery\Domain\obj\Debug\net8.0\Domain.pdb
+D:\Program Files\Projects\C#\ArtGallery\Domain\obj\Debug\net8.0\ref\Domain.dll
