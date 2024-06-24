@@ -1,11 +1,13 @@
-﻿using Application.DTO.User;
+﻿using Application.DTO.Painting.Pag;
+using Application.DTO.User;
 using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Infrastructure.Api;
 
- [Route("api/[controller]")]
+ 
     [ApiController]
+    [Route("api/[controller]")]
     public class PaintingController : ControllerBase
     {
         [HttpGet("GetAll")]
@@ -59,10 +61,10 @@ namespace Infrastructure.Api;
             return Ok();
         }
 
-        [HttpGet("Ascending-Price")]
-        public IActionResult GetPaintingsByAscendingPrice([FromServices] PaintingService paintingService)
+        [HttpGet("GetPagedPainting")]
+        public IActionResult GetPagedPainting([FromBody] PaintingListRequest  request, [FromServices] PaintingService paintingService)
         {
-            var paintings = paintingService.GetPaintingsByAscendingPrice();
+            var paintings = paintingService.GetPagedPainting(request);
             return Ok(paintings);
         }
     }

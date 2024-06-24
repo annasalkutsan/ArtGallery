@@ -1,12 +1,11 @@
 ﻿using Application.DTO.User;
 using Application.Services;
-using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Infrastructure.Api;
 
-[Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class AuthorController : ControllerBase
     {
         

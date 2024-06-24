@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HAs7aUqT4gnQqPAFIxeUPe42bjJJRx5C2aAq+ZcO20g=",
+  "Hash": "uOfLX9zwD+J074v8n2JUIr+FKoMEssb1TeeGfezsKO8=",
   "Source": "Infrastructure",
   "BasePath": "_content/Infrastructure",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Infrastructure\\wwwroot",
       "Source": "Infrastructure",
-      "ContentRoot": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\",
+      "ContentRoot": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\",
       "BasePath": "_content/Infrastructure",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\049271bc-da89-4a4f-86a5-11df174195aa.jpg",
+      "Identity": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\images\\049271bc-da89-4a4f-86a5-11df174195aa.jpg",
       "SourceId": "Infrastructure",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\",
+      "ContentRoot": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\",
       "BasePath": "_content/Infrastructure",
       "RelativePath": "images/049271bc-da89-4a4f-86a5-11df174195aa.jpg",
       "AssetKind": "All",
@@ -36,10 +36,48 @@
       "OriginalItemSpec": "wwwroot\\images\\049271bc-da89-4a4f-86a5-11df174195aa.jpg"
     },
     {
-      "Identity": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\9e296e7a-955d-441b-8204-a6c3b30a7783.jpg",
+      "Identity": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\images\\6eaa85bc-c576-4af1-9a10-ac263d02573e.jpg",
       "SourceId": "Infrastructure",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\",
+      "ContentRoot": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\",
+      "BasePath": "_content/Infrastructure",
+      "RelativePath": "images/6eaa85bc-c576-4af1-9a10-ac263d02573e.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\6eaa85bc-c576-4af1-9a10-ac263d02573e.jpg"
+    },
+    {
+      "Identity": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\images\\7e7a0d20-820d-4d24-888a-f5e9f0a126b4.jpg",
+      "SourceId": "Infrastructure",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\",
+      "BasePath": "_content/Infrastructure",
+      "RelativePath": "images/7e7a0d20-820d-4d24-888a-f5e9f0a126b4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\7e7a0d20-820d-4d24-888a-f5e9f0a126b4.jpg"
+    },
+    {
+      "Identity": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\images\\9e296e7a-955d-441b-8204-a6c3b30a7783.jpg",
+      "SourceId": "Infrastructure",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\",
       "BasePath": "_content/Infrastructure",
       "RelativePath": "images/9e296e7a-955d-441b-8204-a6c3b30a7783.jpg",
       "AssetKind": "All",
@@ -55,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\images\\9e296e7a-955d-441b-8204-a6c3b30a7783.jpg"
     },
     {
-      "Identity": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\b8a04a85-ab17-44a1-aa69-e2b285aa4203.jpg",
+      "Identity": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\images\\b8a04a85-ab17-44a1-aa69-e2b285aa4203.jpg",
       "SourceId": "Infrastructure",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\",
+      "ContentRoot": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\",
       "BasePath": "_content/Infrastructure",
       "RelativePath": "images/b8a04a85-ab17-44a1-aa69-e2b285aa4203.jpg",
       "AssetKind": "All",
@@ -72,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\b8a04a85-ab17-44a1-aa69-e2b285aa4203.jpg"
+    },
+    {
+      "Identity": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\images\\f0edc509-e265-49d0-9764-14860e718abb.jpg",
+      "SourceId": "Infrastructure",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Program Files\\Projects\\C#\\ArtGallery\\Infrastructure\\wwwroot\\",
+      "BasePath": "_content/Infrastructure",
+      "RelativePath": "images/f0edc509-e265-49d0-9764-14860e718abb.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\f0edc509-e265-49d0-9764-14860e718abb.jpg"
     }
   ]
 }
