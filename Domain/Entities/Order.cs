@@ -1,6 +1,4 @@
 ﻿using Domain.Primitives;
-using Domain.Validators;
-using FluentValidation;
 
 namespace Domain.Entities;
 

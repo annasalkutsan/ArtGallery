@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Infrastructure.Api;
 
-[Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         [HttpGet("GetAll")]

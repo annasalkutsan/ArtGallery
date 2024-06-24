@@ -7,24 +7,16 @@ namespace Infrastructure.Dal.EntityFramework;
 
 public class ArtGalleryDbContext:DbContext
 {
-    public ArtGalleryDbContext(DbContextOptions<ArtGalleryDbContext> options) : base(options)
-    {
-    }
-
     public DbSet<User> Users { get; set; }
     public DbSet<Author> Authors { get; set; }
     public DbSet<Painting> Paintings { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<Image> Images { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public ArtGalleryDbContext(DbContextOptions<ArtGalleryDbContext> options) : base(options)
     {
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseNpgsql("User ID=postgres;Password=12345;Host=localhost;Port=5432;Database=postgres;");
-        }
     }
-    
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
