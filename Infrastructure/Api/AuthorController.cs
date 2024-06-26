@@ -1,5 +1,6 @@
 ﻿using Application.DTO.User;
 using Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Infrastructure.Api;
@@ -8,8 +9,6 @@ namespace Infrastructure.Api;
     [Route("api/[controller]")]
     public class AuthorController : ControllerBase
     {
-        
-
         [HttpGet("GetAll")]
         public IActionResult GetAll([FromServices] AuthorService authorService)
         {

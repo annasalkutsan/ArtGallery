@@ -24,34 +24,6 @@ namespace Infrastructure.Api;
             return Ok(user);
         }
 
-        [HttpPost("Registration")]
-        public async Task<IActionResult> Registration([FromBody] UserCreateRequest userCreateRequest, [FromServices] UserService userService)
-        {
-            try
-            {
-                var createdUser = await userService.Registration(userCreateRequest);
-                return Ok(createdUser);
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpGet("Login")]
-        public IActionResult Login(UserLoginRequest loginRequest, [FromServices] UserService userService)
-        {
-            try
-            {
-                var user = userService.Login(loginRequest);
-                return Ok(user);
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                return Unauthorized(ex.Message);
-            }
-        }
-
         [HttpPut("Update")]
         public async Task<IActionResult> Update([FromBody] UserUpdateRequest userUpdateRequest, [FromServices] UserService userService)
         {

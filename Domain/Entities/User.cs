@@ -2,17 +2,15 @@
 using Domain.Validators;
 using Domain.ValueObject;
 using FluentValidation;
-using Domain.Validators;
 namespace Domain.Entities;
 
 public class User:BaseEntity
 {
     //для EF 
     public User(){}
-    public User(string nickName, string password, string email, PaymentDetails paymentDetails, Role role, List<Order> orders)
+    public User(string nickName, string email, PaymentDetails paymentDetails, EnumTypeRoles role, List<Order> orders)
     {
         NickName = nickName;
-        Password = password;
         Email = email;
         PaymentDetails = paymentDetails;
         Role = role;
@@ -21,14 +19,15 @@ public class User:BaseEntity
         //validator.ValidateAndThrow(this);
     }
     public string NickName { get; set; }
-    public string Password { get; set; }
+    public string PasswordHash { get; set; }
+    public string PasswordSalt { get; set; }
     public string Email { get; set; }
     public PaymentDetails PaymentDetails { get; set; }
-    public Role Role { get; set; }
+    public EnumTypeRoles Role { get; set; }
 
     public ICollection<Order> Orders { get; set; } = new List<Order>();
     
-    public User Update(string? email, string? firstName, string? lastName, string? cardNumber, string? checkingAccount, Role role)
+    public User Update(string? email, string? firstName, string? lastName, string? cardNumber, string? checkingAccount, EnumTypeRoles role)
     {
         PaymentDetails.Update(firstName, lastName, cardNumber, checkingAccount);
         if (email is not null)

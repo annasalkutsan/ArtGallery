@@ -1,6 +1,6 @@
 ﻿namespace Domain.Primitives;
 
-public enum Role
+public enum EnumTypeRoles
 {
     Underfine = 0,
 
