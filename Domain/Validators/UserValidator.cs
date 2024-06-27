@@ -12,12 +12,6 @@ public class UserValidator : AbstractValidator<User>
             .NotNull().WithMessage(x => ValidationMessages.IsNull)
             .NotEmpty().WithMessage(x => ValidationMessages.IsEmpty)
             .Matches(@"^@").WithMessage(ValidationMessages.IsRight);
-        
-        RuleFor(x => x.Password)
-            .NotNull().WithMessage(x => ValidationMessages.IsNull)
-            .NotEmpty().WithMessage(x => ValidationMessages.IsEmpty)
-            //не мннее 8 символов содержит буквы англ алфавита и цифры
-            .Matches(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$").WithMessage(ValidationMessages.IsRight);
 
         RuleFor(x => x.Email)
             .NotNull().WithMessage(x => ValidationMessages.IsNull)

@@ -5,12 +5,24 @@
       "PackagePath": "staticwebassets\\images\\049271bc-da89-4a4f-86a5-11df174195aa.jpg"
     },
     {
+      "Id": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\6eaa85bc-c576-4af1-9a10-ac263d02573e.jpg",
+      "PackagePath": "staticwebassets\\images\\6eaa85bc-c576-4af1-9a10-ac263d02573e.jpg"
+    },
+    {
+      "Id": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\7e7a0d20-820d-4d24-888a-f5e9f0a126b4.jpg",
+      "PackagePath": "staticwebassets\\images\\7e7a0d20-820d-4d24-888a-f5e9f0a126b4.jpg"
+    },
+    {
       "Id": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\9e296e7a-955d-441b-8204-a6c3b30a7783.jpg",
       "PackagePath": "staticwebassets\\images\\9e296e7a-955d-441b-8204-a6c3b30a7783.jpg"
     },
     {
       "Id": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\b8a04a85-ab17-44a1-aa69-e2b285aa4203.jpg",
       "PackagePath": "staticwebassets\\images\\b8a04a85-ab17-44a1-aa69-e2b285aa4203.jpg"
+    },
+    {
+      "Id": "D:\\Рабочий стол\\ArtGallery\\Infrastructure\\wwwroot\\images\\f0edc509-e265-49d0-9764-14860e718abb.jpg",
+      "PackagePath": "staticwebassets\\images\\f0edc509-e265-49d0-9764-14860e718abb.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Infrastructure.Microsoft.AspNetCore.StaticWebAssets.props",

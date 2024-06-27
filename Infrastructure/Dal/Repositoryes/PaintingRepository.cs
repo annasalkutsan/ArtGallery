@@ -1,4 +1,6 @@
-﻿using Application.Interfaces;
+﻿using Application.DTO.Painting.Pag;
+using Application.Interfaces;
+using Application.Paginations;
 using Domain.Entities;
 using Infrastructure.Dal.EntityFramework;
 
@@ -74,8 +76,28 @@ public class PaintingRepository : IPaintingRepository
         await _dbContext.SaveChangesAsync();
     }
 
-    public ICollection<Painting> GetPaintingsByAscendingPrice()
+    /// <summary>
+    ///     new
+    /// </summary>
+    /// <param name="request"></param>
+    /// <returns></returns>
+    public PaintingListResponse GetPagedPainting(PaintingListRequest request)
     {
-        return _dbContext.Paintings.OrderBy(p => p.Price).ToList();
+        var quest = _dbContext.Paintings.AsQueryable();
+
+        //  Ты можешь сделать базовые проверки как пример
+        if (!string.IsNullOrEmpty(request.Search))
+            quest = quest.Where(p => (p.Title + " " + p.Description).Contains(request.Search));
+
+        var paintingList = quest.GetPaginationResponse<Painting, PaintingListResponse, PaintingListItems>(request, x => 
+        new PaintingListItems 
+        {
+            Id = x.Id,
+            Price = x.Price,
+            Title = x.Title,
+            ImagePath = x.ImagePath,
+        });
+
+        return paintingList;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Application.DTO.User;
+﻿using Application.DTO.Order.Pag;
+using Application.DTO.User;
 using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
@@ -93,18 +94,14 @@ public class OrderService
             var orders = _orderRepository.GetOrdersInDevelopment();
             return _mapper.Map<ICollection<OrderResponse>>(orders);
         }
-        // Новый метод для получения заказов с пагинацией
-        public async Task<PaginatedOrderResponse> GetPagedOrdersAsync(int pageNumber, int pageSize)
+        /// <summary>
+        ///     Новый метод для получения заказов с пагинацией (x2 new)
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public OrderListResponse GetPagedOrders(OrderListRequest request)
         {
-            var (orders, totalOrders) = await _orderRepository.GetPagedOrdersAsync(pageNumber, pageSize);
-            var response = _mapper.Map<List<OrderResponse>>(orders);
-
-            return new PaginatedOrderResponse
-            {
-                Orders = response,
-                TotalOrders = totalOrders,
-                PageNumber = pageNumber,
-                PageSize = pageSize
-            };
+            var res = _orderRepository.GetPagedOrders(request);
+            return res;
         }
     }

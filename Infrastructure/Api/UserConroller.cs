@@ -1,11 +1,13 @@
 ﻿using Application.DTO.User;
 using Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Infrastructure.Api;
 
-[Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
+    
     public class UserController : ControllerBase
     {
         [HttpGet("GetAll")]
@@ -22,34 +24,6 @@ namespace Infrastructure.Api;
             if (user == null)
                 return NotFound();
             return Ok(user);
-        }
-
-        [HttpPost("Registration")]
-        public async Task<IActionResult> Registration([FromBody] UserCreateRequest userCreateRequest, [FromServices] UserService userService)
-        {
-            try
-            {
-                var createdUser = await userService.Registration(userCreateRequest);
-                return Ok(createdUser);
-            }
-            catch (InvalidOperationException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpGet("Login")]
-        public IActionResult Login(UserLoginRequest loginRequest, [FromServices] UserService userService)
-        {
-            try
-            {
-                var user = userService.Login(loginRequest);
-                return Ok(user);
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                return Unauthorized(ex.Message);
-            }
         }
 
         [HttpPut("Update")]

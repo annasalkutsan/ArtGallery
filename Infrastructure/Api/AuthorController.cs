@@ -1,16 +1,14 @@
 ﻿using Application.DTO.User;
 using Application.Services;
-using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Infrastructure.Api;
 
-[Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class AuthorController : ControllerBase
     {
-        
-
         [HttpGet("GetAll")]
         public IActionResult GetAll([FromServices] AuthorService authorService)
         {
@@ -27,6 +25,7 @@ namespace Infrastructure.Api;
             return Ok(author);
         }
         
+        [Authorize]
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] AuthorCreateRequest authorCreateRequest, [FromServices] AuthorService authorService)
         {
@@ -41,6 +40,7 @@ namespace Infrastructure.Api;
             }
         }
 
+        [Authorize]
         [HttpPut("Update")]
         public async Task<IActionResult> Update( [FromBody] AuthorUpdateRequest authorUpdateRequest, [FromServices] AuthorService authorService)
         {
@@ -51,6 +51,7 @@ namespace Infrastructure.Api;
             return Ok(updatedAuthor);
         }
 
+        [Authorize]
         [HttpDelete("Delete")]
         public IActionResult Delete(Guid id, [FromServices] AuthorService authorService)
         {

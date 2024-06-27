@@ -13,7 +13,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         // Настройка обязательности свойств
         builder.Property(x => x.NickName).IsRequired();
-        builder.Property(x => x.Password).IsRequired();
+        builder.Property(x => x.PasswordHash);
+        builder.Property(x => x.PasswordSalt);
         builder.Property(x => x.Email).IsRequired();
         builder.Property(x => x.Role).IsRequired();
 

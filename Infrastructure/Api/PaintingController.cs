@@ -1,11 +1,15 @@
-﻿using Application.DTO.User;
+﻿using System.Net;
+using Application.DTO.Painting.Pag;
+using Application.DTO.User;
 using Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Infrastructure.Api;
 
- [Route("api/[controller]")]
+ 
     [ApiController]
+    [Route("api/[controller]")]
     public class PaintingController : ControllerBase
     {
         [HttpGet("GetAll")]
@@ -24,6 +28,7 @@ namespace Infrastructure.Api;
             return Ok(painting);
         }
 
+        [Authorize (Roles = "Artist")]
         [HttpPost("Create")]
         public async Task<IActionResult> Create(PaintingUploadImageRequest paintingCreateRequest, [FromServices] PaintingService paintingService)
         {
@@ -38,6 +43,7 @@ namespace Infrastructure.Api;
             }
         }
 
+        [Authorize (Roles = "Artist")]
         [HttpPut("Update")]
         public async Task<IActionResult> Update([FromBody] PaintingUpdateRequest paintingUpdateRequest, [FromServices] PaintingService paintingService)
         {
@@ -50,6 +56,7 @@ namespace Infrastructure.Api;
             return Ok(updatedPainting);
         }
 
+        [Authorize (Roles = "Artist")]
         [HttpDelete("Delete")]
         public IActionResult Delete(Guid id, [FromServices] PaintingService paintingService)
         {
@@ -59,10 +66,10 @@ namespace Infrastructure.Api;
             return Ok();
         }
 
-        [HttpGet("Ascending-Price")]
-        public IActionResult GetPaintingsByAscendingPrice([FromServices] PaintingService paintingService)
+        [HttpGet("GetPagedPainting")]
+        public IActionResult GetPagedPainting([FromBody] PaintingListRequest  request, [FromServices] PaintingService paintingService)
         {
-            var paintings = paintingService.GetPaintingsByAscendingPrice();
+            var paintings = paintingService.GetPagedPainting(request);
             return Ok(paintings);
         }
     }

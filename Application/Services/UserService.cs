@@ -33,36 +33,6 @@ public class UserService
         var response = _mapper.Map<List<UserResponse>>(users);
         return response;
     }
-
-    public async Task<UserResponse> Registration(UserCreateRequest request)
-    {
-        // Проверка существования пользователя с таким же никнеймом или email
-        var existingUser = _userRepository.GetAll().Any(u => u.NickName == request.NickName || u.Email == request.Email);
-        if (existingUser)
-        {
-            throw new InvalidOperationException("User with the same nickname or email already exists.");
-        }
-
-        // Создание нового пользователя
-        var user = _mapper.Map<User>(request);
-        var createdUser = _userRepository.Create(user);
-        await _userRepository.SaveChanges();
-        var response = _mapper.Map<UserResponse>(createdUser);
-        return response;
-    }
-
-    public UserResponse Login(UserLoginRequest request)
-    {
-        // Ищем пользователя по его никнейму и паролю
-        var user = _userRepository.GetAll().SingleOrDefault(u => u.NickName == request.NickName && u.Password == request.Password);
-        // Если пользователь не найден, выбрасываем исключение UnauthorizedAccessException
-        if (user == null)
-        {
-            throw new UnauthorizedAccessException("Invalid username or password");
-        }
-        var response = _mapper.Map<User, UserResponse>(user);
-        return response;
-    }
     
     public async Task<UserResponse> Update(UserUpdateRequest request)
     {

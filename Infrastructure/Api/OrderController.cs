@@ -1,11 +1,15 @@
-﻿using Application.DTO.User;
+﻿using Application.DTO.Order.Pag;
+using Application.DTO.User;
 using Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Infrastructure.Api;
 
-[Route("api/[controller]")]
+
     [ApiController]
+    [Route("api/[controller]")]
+    [Authorize]
     public class OrderController : ControllerBase
     {
         [HttpGet("GetAll")]
@@ -80,9 +84,9 @@ namespace Infrastructure.Api;
         
         // Метод для получения заказов с пагинацией
         [HttpGet("GetPagedOrders")]
-        public async Task<IActionResult> GetPagedOrders([FromServices] OrderService orderService, int pageNumber = 1, int pageSize = 10)
+        public IActionResult GetPagedOrders([FromBody] OrderListRequest request,[FromServices] OrderService orderService)
         {
-            var pagedOrders = await orderService.GetPagedOrdersAsync(pageNumber, pageSize);
+            var pagedOrders = orderService.GetPagedOrders(request);
             return Ok(pagedOrders);
         }
     }
