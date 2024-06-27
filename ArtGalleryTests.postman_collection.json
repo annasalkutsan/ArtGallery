@@ -1,0 +1,1951 @@
+{
+	"info": {
+		"_postman_id": "a60f817d-5995-4d7d-8192-f9c5dd1b9415",
+		"name": "ArtGalleryTests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34571325"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"item": [
+								{
+									"name": "/api/Auth/Login",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"teo@gmail.com\",\n  \"password\": \"12345678\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Auth/Login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Auth",
+												"Login"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Auth/Login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Auth",
+														"Login"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Registration",
+							"item": [
+								{
+									"name": "/api/Auth/Registration",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"confirmPassword\": \"1234\",\n  \"email\": \"teo@gmail.com\",\n  \"nickName\": \"teo_t\",\n  \"password\": \"12345678\",\n  \"paymentDetails\": {\n    \"firstName\": \"Teo\",\n    \"lastName\": \"Dorwye\",\n    \"cardNumber\": \"1234678950234781\",\n    \"checkingAccount\": \"12974505534820146789\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Auth/Registration",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Auth",
+												"Registration"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"confirmPassword\": \"<string>\",\n  \"email\": \"<string>\",\n  \"nickName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"paymentDetails\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"cardNumber\": \"<string>\",\n    \"checkingAccount\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Auth/Registration",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Auth",
+														"Registration"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Author",
+					"item": [
+						{
+							"name": "Create",
+							"item": [
+								{
+									"name": "/api/Author/Create",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4ZDllYzExYy03ZDdmLTQwNmQtYjQwOS1lNjFjYTQxYWE4MmMiLCJ1bmlxdWVfbmFtZSI6InRlb190IiwibmJmIjoxNzE5NTE0OTEyLCJleHAiOjE3MjAxMTQ5MTIsImlhdCI6MTcxOTUxNDkxMiwiaXNzIjoiWExFQiIsImF1ZCI6Ik1QSUQifQ.CVoQQwSYVhZ4uwxzpxfGMDx4Iudn7Jer1hWHOCLUI2Q",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n   \"numberOfWorks\": 860,\n  \"description\": \"Known for his expressive brushwork and vibrant colors in landscapes and portraits.\",\n  \"fullName\": {\n    \"firstName\": \"Vincent\",\n    \"lastName\": \"van Gogh\",\n    \"middleName\": \"\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Author/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Author",
+												"Create"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"numberOfWorks\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"fullName\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"middleName\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Author/Create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Author",
+														"Create"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Update",
+							"item": [
+								{
+									"name": "/api/Author/Update",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<uuid>\",\n  \"numberOfWorks\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"fullName\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"middleName\": \"<string>\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Author/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Author",
+												"Update"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<uuid>\",\n  \"numberOfWorks\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"fullName\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"middleName\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Author/Update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Author",
+														"Update"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetAll",
+							"item": [
+								{
+									"name": "/api/Author/GetAll",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Author/GetAll",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Author",
+												"GetAll"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Author/GetAll",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Author",
+														"GetAll"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetById",
+							"item": [
+								{
+									"name": "/api/Author/GetById",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Author/GetById?id=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Author",
+												"GetById"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Author/GetById?id=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Author",
+														"GetById"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetPaintings",
+							"item": [
+								{
+									"name": "/api/Author/GetPaintings",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Author/GetPaintings?id=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Author",
+												"GetPaintings"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Author/GetPaintings?id=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Author",
+														"GetPaintings"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Delete",
+							"item": [
+								{
+									"name": "/api/Author/Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Author/Delete?id=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Author",
+												"Delete"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Author/Delete?id=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Author",
+														"Delete"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "Create",
+							"item": [
+								{
+									"name": "/api/Order/Create",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"orderDate\": \"<dateTime>\",\n  \"paintingId\": \"<uuid>\",\n  \"userId\": \"<uuid>\",\n  \"status\": 2\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Create"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"orderDate\": \"<dateTime>\",\n  \"paintingId\": \"<uuid>\",\n  \"userId\": \"<uuid>\",\n  \"status\": 2\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Order/Create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Order",
+														"Create"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Update",
+							"item": [
+								{
+									"name": "/api/Order/Update",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<uuid>\",\n  \"orderDate\": \"<dateTime>\",\n  \"status\": 1\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Update"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<uuid>\",\n  \"orderDate\": \"<dateTime>\",\n  \"status\": 1\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Order/Update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Order",
+														"Update"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetAll",
+							"item": [
+								{
+									"name": "/api/Order/GetAll",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/GetAll",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"GetAll"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Order/GetAll",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Order",
+														"GetAll"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetById",
+							"item": [
+								{
+									"name": "/api/Order/GetById",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/GetById?id=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"GetById"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Order/GetById?id=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Order",
+														"GetById"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetOrdersNotStarted",
+							"item": [
+								{
+									"name": "/api/Order/GetOrdersNotStarted",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/GetOrdersNotStarted",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"GetOrdersNotStarted"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Order/GetOrdersNotStarted",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Order",
+														"GetOrdersNotStarted"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetOrdersReady",
+							"item": [
+								{
+									"name": "/api/Order/GetOrdersReady",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/GetOrdersReady",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"GetOrdersReady"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Order/GetOrdersReady",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Order",
+														"GetOrdersReady"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetOrdersInDevelopment",
+							"item": [
+								{
+									"name": "/api/Order/GetOrdersInDevelopment",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/GetOrdersInDevelopment",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"GetOrdersInDevelopment"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Order/GetOrdersInDevelopment",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Order",
+														"GetOrdersInDevelopment"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetPagedOrders",
+							"item": [
+								{
+									"name": "/api/Order/GetPagedOrders",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4ZDllYzExYy03ZDdmLTQwNmQtYjQwOS1lNjFjYTQxYWE4MmMiLCJ1bmlxdWVfbmFtZSI6InRlb190IiwibmJmIjoxNzE5NTE2MjIzLCJleHAiOjE3MjAxMTYyMjMsImlhdCI6MTcxOTUxNjIyMywiaXNzIjoiWExFQiIsImF1ZCI6Ik1QSUQifQ.zXP4YCqJ6i1uW2v6gerx5Jup2Xn5_FwICf65jZVAz_0",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"orderDate\": \"2024-06-16 11:34:57.369000 +00:00\",\n  \"page\": {\n    \"pageNumber\": \"1\",\n    \"pageSize\": \"10\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/GetPagedOrders",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"GetPagedOrders"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Order/GetPagedOrders",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Order",
+														"GetPagedOrders"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Delete",
+							"item": [
+								{
+									"name": "/api/Order/Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Delete?id=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Delete"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Order/Delete?id=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Order",
+														"Delete"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Painting",
+					"item": [
+						{
+							"name": "Create",
+							"item": [
+								{
+									"name": "/api/Painting/Create",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4ZDllYzExYy03ZDdmLTQwNmQtYjQwOS1lNjFjYTQxYWE4MmMiLCJ1bmlxdWVfbmFtZSI6InRlb190IiwibmJmIjoxNzE5NTE0OTEyLCJleHAiOjE3MjAxMTQ5MTIsImlhdCI6MTcxOTUxNDkxMiwiaXNzIjoiWExFQiIsImF1ZCI6Ik1QSUQifQ.CVoQQwSYVhZ4uwxzpxfGMDx4Iudn7Jer1hWHOCLUI2Q",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"Sunflowers\",\n  \"description\": \"A vibrant still life of sunflowers in a vase.\",\n  \"price\": 350.99,\n  \"authorId\": \"22331a15-3737-4426-8b18-0ff8507e6c68\",\n  \"image\": \"https://lh3.googleusercontent.com/proxy/cn0vd1lNz15FdvFg3VBBsL7tZsW2CK8CfQ1Iv5GzElo8L4x41gLs-4b6kkArxbIbBzzm0Ggwc_zA3b3Fbcz7l3y5M60o7JRAKnrMNUc0N551OBWvIg\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Painting/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Painting",
+												"Create"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"price\": \"<double>\",\n  \"authorId\": \"<uuid>\",\n  \"image\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Painting/Create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Painting",
+														"Create"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Update",
+							"item": [
+								{
+									"name": "/api/Painting/Update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4ZDllYzExYy03ZDdmLTQwNmQtYjQwOS1lNjFjYTQxYWE4MmMiLCJ1bmlxdWVfbmFtZSI6InRlb190IiwibmJmIjoxNzE5NTE1ODYyLCJleHAiOjE3MjAxMTU4NjIsImlhdCI6MTcxOTUxNTg2MiwiaXNzIjoiWExFQiIsImF1ZCI6Ik1QSUQifQ.hDap-qzEI6hLOqLm-u-GO2OE7llxSq-a2KhokLSUa-4",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"5953e8cf-2a70-47bf-b5ef-d464838fe5bf\",\n  \"title\": \"Mona Lisa\",\n  \"description\": \"The Mona Lisa, also known as La Gioconda, is a portrait of a woman with an enigmatic expression. Painted between 1503 and 1506, it is renowned for its intricate detail and masterful use of sfumato. The subject's mysterious smile and the background landscape have captivated viewers for centuries.\",\n  \"price\": \"870000000\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Painting/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Painting",
+												"Update"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<uuid>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"price\": \"<double>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Painting/Update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Painting",
+														"Update"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetAll",
+							"item": [
+								{
+									"name": "/api/Painting/GetAll",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Painting/GetAll",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Painting",
+												"GetAll"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Painting/GetAll",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Painting",
+														"GetAll"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetById",
+							"item": [
+								{
+									"name": "/api/Painting/GetById",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Painting/GetById?id=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Painting",
+												"GetById"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Painting/GetById?id=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Painting",
+														"GetById"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetPagedPainting",
+							"item": [
+								{
+									"name": "/api/Painting/GetPagedPainting",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4ZDllYzExYy03ZDdmLTQwNmQtYjQwOS1lNjFjYTQxYWE4MmMiLCJ1bmlxdWVfbmFtZSI6InRlb190IiwibmJmIjoxNzE5NTE2MjIzLCJleHAiOjE3MjAxMTYyMjMsImlhdCI6MTcxOTUxNjIyMywiaXNzIjoiWExFQiIsImF1ZCI6Ik1QSUQifQ.zXP4YCqJ6i1uW2v6gerx5Jup2Xn5_FwICf65jZVAz_0",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"search\": \"Mona Lisa\",\n  \"page\": {\n    \"pageNumber\": \"1\",\n    \"pageSize\": \"20\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Painting/GetPagedPainting",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Painting",
+												"GetPagedPainting"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Painting/GetPagedPainting",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Painting",
+														"GetPagedPainting"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Delete",
+							"item": [
+								{
+									"name": "/api/Painting/Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Painting/Delete?id=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Painting",
+												"Delete"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Painting/Delete?id=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Painting",
+														"Delete"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Update",
+							"item": [
+								{
+									"name": "/api/User/Update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4ZDllYzExYy03ZDdmLTQwNmQtYjQwOS1lNjFjYTQxYWE4MmMiLCJ1bmlxdWVfbmFtZSI6InRlb190IiwibmJmIjoxNzE5NTE0OTEyLCJleHAiOjE3MjAxMTQ5MTIsImlhdCI6MTcxOTUxNDkxMiwiaXNzIjoiWExFQiIsImF1ZCI6Ik1QSUQifQ.CVoQQwSYVhZ4uwxzpxfGMDx4Iudn7Jer1hWHOCLUI2Q",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"8d9ec11c-7d7f-406d-b409-e61ca41aa82c\",\n  \"email\": \"teo@gmail.com\",\n  \"paymentDetails\": {\n    \"firstName\": \"Teo\",\n    \"lastName\": \"Dorwye\",\n    \"cardNumber\": \"1234678950234781\",\n    \"checkingAccount\": \"12974505534820146789\"\n  },\n  \"role\": 2\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/User/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"User",
+												"Update"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<uuid>\",\n  \"email\": \"<string>\",\n  \"paymentDetails\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"cardNumber\": \"<string>\",\n    \"checkingAccount\": \"<string>\"\n  },\n  \"role\": 0\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/User/Update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"Update"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetAll",
+							"item": [
+								{
+									"name": "/api/User/GetAll",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4ZDllYzExYy03ZDdmLTQwNmQtYjQwOS1lNjFjYTQxYWE4MmMiLCJ1bmlxdWVfbmFtZSI6InRlb190IiwibmJmIjoxNzE5NTE0OTEyLCJleHAiOjE3MjAxMTQ5MTIsImlhdCI6MTcxOTUxNDkxMiwiaXNzIjoiWExFQiIsImF1ZCI6Ik1QSUQifQ.CVoQQwSYVhZ4uwxzpxfGMDx4Iudn7Jer1hWHOCLUI2Q",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/User/GetAll",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"User",
+												"GetAll"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/User/GetAll",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"GetAll"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetById",
+							"item": [
+								{
+									"name": "/api/User/GetById",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/User/GetById?id=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"User",
+												"GetById"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/User/GetById?id=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"GetById"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetUserOrders",
+							"item": [
+								{
+									"name": "/api/User/GetUserOrders",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/User/GetUserOrders?id=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"User",
+												"GetUserOrders"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/User/GetUserOrders?id=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"GetUserOrders"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Delete",
+							"item": [
+								{
+									"name": "/api/User/Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/User/Delete?id=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"User",
+												"Delete"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/User/Delete?id=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"Delete"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<uuid>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5166"
+		},
+		{
+			"key": "Authorization",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4ZDllYzExYy03ZDdmLTQwNmQtYjQwOS1lNjFjYTQxYWE4MmMiLCJ1bmlxdWVfbmFtZSI6InRlb190IiwibmJmIjoxNzE5NTE0OTEyLCJleHAiOjE3MjAxMTQ5MTIsImlhdCI6MTcxOTUxNDkxMiwiaXNzIjoiWExFQiIsImF1ZCI6Ik1QSUQifQ.CVoQQwSYVhZ4uwxzpxfGMDx4Iudn7Jer1hWHOCLUI2Q",
+			"type": "string"
+		}
+	]
+}
