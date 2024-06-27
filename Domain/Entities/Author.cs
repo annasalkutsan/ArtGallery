@@ -1,42 +1,41 @@
 ﻿using Domain.Primitives;
-using Domain.Validators;
-using FluentValidation;
 
-namespace Domain.Entities;
-
-public class Author:BaseEntity
+namespace Domain.Entities
 {
-    public Author(){}
-
-    public Author(int numberOfWorks, string? description, User user)
+    public class Author : BaseEntity
     {
-        NumberOfWorks = numberOfWorks;
-        Description = description;
-       
-       // var validator = new AuthorValidator();
-      //  validator.ValidateAndThrow(this);
-    }
-    public int NumberOfWorks { get; set; }
-    public string? Description { get; set; }
+        public Author() { }
 
-    public FullName FullName { get; set; }
-    public ICollection<Painting> Paintings { get; set; } = new List<Painting>();
-    
-    public Author Update(int? numberOfWorks, string? description)
-    {
-        if (numberOfWorks.HasValue)
+        public Author(int numberOfWorks, string? description, User user)
         {
-            NumberOfWorks = numberOfWorks.Value;
-        }
-
-        if (description is not null)
-        {
+            NumberOfWorks = numberOfWorks;
             Description = description;
+
+            // var validator = new AuthorValidator();
+            //  validator.ValidateAndThrow(this);
         }
+        public int NumberOfWorks { get; set; }
+        public string? Description { get; set; }
 
-       // var validator = new AuthorValidator();
-       // validator.ValidateAndThrow(this);
+        public FullName FullName { get; set; }
+        public ICollection<Painting> Paintings { get; set; } = new List<Painting>();
 
-        return this;
+        public Author Update(int? numberOfWorks, string? description)
+        {
+            if (numberOfWorks.HasValue)
+            {
+                NumberOfWorks = numberOfWorks.Value;
+            }
+
+            if (description is not null)
+            {
+                Description = description;
+            }
+
+            // var validator = new AuthorValidator();
+            // validator.ValidateAndThrow(this);
+
+            return this;
+        }
     }
 }

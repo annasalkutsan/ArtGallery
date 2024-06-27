@@ -3,13 +3,27 @@ using Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Infrastructure.Api;
-
+namespace Infrastructure.Api
+{
     [ApiController]
     [Route("api/[controller]")]
-    
     public class UserController : ControllerBase
     {
+        [Authorize]
+        [HttpPut("Update")]
+        public async Task<IActionResult> Update([FromBody] UserUpdateRequest userUpdateRequest, [FromServices] UserService userService)
+        {
+            try
+            {
+                var updatedUser = await userService.Update(userUpdateRequest);
+                return Ok(updatedUser);
+            }
+            catch (ArgumentNullException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
         [HttpGet("GetAll")]
         public IActionResult GetAll([FromServices] UserService userService)
         {
@@ -26,18 +40,11 @@ namespace Infrastructure.Api;
             return Ok(user);
         }
 
-        [HttpPut("Update")]
-        public async Task<IActionResult> Update([FromBody] UserUpdateRequest userUpdateRequest, [FromServices] UserService userService)
+        [HttpGet("GetUserOrders")]
+        public IActionResult GetUserOrders(Guid id, [FromServices] UserService userService)
         {
-            try
-            {
-                var updatedUser = await userService.Update(userUpdateRequest);
-                return Ok(updatedUser);
-            }
-            catch (ArgumentNullException ex)
-            {
-                return NotFound(ex.Message);
-            }
+            var orders = userService.GetUserOrders(id);
+            return Ok(orders);
         }
 
         [HttpDelete("Delete")]
@@ -48,11 +55,5 @@ namespace Infrastructure.Api;
                 return NotFound();
             return Ok();
         }
-
-        [HttpGet("GetUserOrders")]
-        public IActionResult GetUserOrders(Guid id, [FromServices] UserService userService)
-        {
-            var orders = userService.GetUserOrders(id);
-            return Ok(orders);
-        }
     }
+}

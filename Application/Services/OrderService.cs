@@ -4,9 +4,9 @@ using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
 
-namespace Application.Services;
-
-public class OrderService
+namespace Application.Services
+{
+    public class OrderService
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
@@ -15,20 +15,6 @@ public class OrderService
         {
             _orderRepository = orderRepository;
             _mapper = mapper;
-        }
-
-        public OrderResponse GetById(Guid id)
-        {
-            var order = _orderRepository.GetById(id);
-            var response = _mapper.Map<OrderResponse>(order);
-            return response;
-        }
-
-        public List<OrderResponse> GetAll()
-        {
-            var orders = _orderRepository.GetAll();
-            var response = _mapper.Map<List<OrderResponse>>(orders);
-            return response;
         }
 
         public async Task<OrderResponse> CreateAsync(OrderCreateRequest request)
@@ -42,23 +28,23 @@ public class OrderService
 
         public async Task<OrderResponse> Update(OrderUpdateRequest request)
         {
-             /*var order = _mapper.Map<Order>(request);
-            var updatedOrder = _orderRepository.Update(order);
-            await _orderRepository.SaveChanges();
-            var response = _mapper.Map<OrderResponse>(updatedOrder);
-            return response;*/
-            
-            
-            
+            /*var order = _mapper.Map<Order>(request);
+           var updatedOrder = _orderRepository.Update(order);
+           await _orderRepository.SaveChanges();
+           var response = _mapper.Map<OrderResponse>(updatedOrder);
+           return response;*/
+
+
+
             // Получаем существующий заказ по Id
             var existingOrder = _orderRepository.GetById(request.Id);
-    
+
             if (existingOrder == null)
             {
                 // Если заказ не найден, возвращаем null или обрабатываем ошибку
                 return null;
             }
-    
+
             // Обновляем только те свойства, которые должны измениться
             existingOrder.OrderDate = request.OrderDate;
             existingOrder.Status = request.Status;
@@ -72,9 +58,18 @@ public class OrderService
             return response;
         }
 
-        public bool Delete(Guid id)
+        public List<OrderResponse> GetAll()
         {
-            return _orderRepository.Delete(id);
+            var orders = _orderRepository.GetAll();
+            var response = _mapper.Map<List<OrderResponse>>(orders);
+            return response;
+        }
+
+        public OrderResponse GetById(Guid id)
+        {
+            var order = _orderRepository.GetById(id);
+            var response = _mapper.Map<OrderResponse>(order);
+            return response;
         }
 
         public ICollection<OrderResponse> GetOrdersNotStarted()
@@ -94,6 +89,12 @@ public class OrderService
             var orders = _orderRepository.GetOrdersInDevelopment();
             return _mapper.Map<ICollection<OrderResponse>>(orders);
         }
+
+        public bool Delete(Guid id)
+        {
+            return _orderRepository.Delete(id);
+        }
+
         /// <summary>
         ///     Новый метод для получения заказов с пагинацией (x2 new)
         /// </summary>
@@ -105,3 +106,4 @@ public class OrderService
             return res;
         }
     }
+}

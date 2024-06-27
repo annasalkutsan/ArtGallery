@@ -1,9 +1,9 @@
-﻿using Application.DTO.User;
-using Domain.Entities;
+﻿using Domain.Entities;
 
-namespace Application.Interfaces;
-
-public interface IAuthorRepository:IRepository<Author>
+namespace Application.Interfaces
 {
-    ICollection<Painting> GetAuthorPaintings(Guid authorId);
+    public interface IAuthorRepository : IRepository<Author>
+    {
+        ICollection<Painting> GetAuthorPaintings(Guid authorId);
+    }
 }

@@ -17,16 +17,6 @@ namespace Infrastructure.Dal.Repositoryes
             _dbContext = dbContext;
         }
 
-        public Order GetById(Guid id)
-        {
-            return _dbContext.Orders.FirstOrDefault(o => o.Id == id);
-        }
-
-        public List<Order> GetAll()
-        {
-            return _dbContext.Orders.ToList();
-        }
-
         public Order Create(Order entity)
         {
             _dbContext.Orders.Add(entity);
@@ -39,6 +29,56 @@ namespace Infrastructure.Dal.Repositoryes
             _dbContext.Orders.Update(entity);
             _dbContext.SaveChanges();
             return entity;
+        }
+
+        public Order GetById(Guid id)
+        {
+            return _dbContext.Orders.FirstOrDefault(o => o.Id == id);
+        }
+
+        public List<Order> GetAll()
+        {
+            return _dbContext.Orders.ToList();
+        }
+
+        public ICollection<Order> GetOrdersNotStarted()
+        {
+            return _dbContext.Orders.Where(o => o.Status == EnumTypeStatus.NotStarted).ToList();
+        }
+
+        public ICollection<Order> GetOrdersReady()
+        {
+            return _dbContext.Orders.Where(o => o.Status == EnumTypeStatus.Ready).ToList();
+        }
+
+        public ICollection<Order> GetOrdersInDevelopment()
+        {
+            return _dbContext.Orders.Where(o => o.Status == EnumTypeStatus.InDevelopment).ToList();
+        }
+
+        /// <summary>
+        ///     Новый метод для получения заказов с пагинацией  (x2 new)
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public OrderListResponse GetPagedOrders(OrderListRequest request)
+        {
+            var quest = _dbContext.Orders.AsQueryable();
+
+            //  Ты можешь сделать базовые проверки, как пример:
+
+            if (request.OrderDate != null)
+                quest = quest.Where(x => x.OrderDate == request.OrderDate);
+
+            var orderList = quest.GetPaginationResponse<Order, OrderListResponse, OrderListItems>(request, x =>
+            new OrderListItems
+            {
+                OrderId = x.Id,
+                Status = x.Status,
+            });
+
+            return orderList;
         }
 
         public bool Delete(Guid id)
@@ -56,46 +96,6 @@ namespace Infrastructure.Dal.Repositoryes
         public async Task SaveChanges()
         {
             await _dbContext.SaveChangesAsync();
-        }
-
-        public ICollection<Order> GetOrdersNotStarted()
-        {
-            return _dbContext.Orders.Where(o => o.Status == Status.NotStarted).ToList();
-        }
-
-        public ICollection<Order> GetOrdersReady()
-        {
-            return _dbContext.Orders.Where(o => o.Status == Status.Ready).ToList();
-        }
-
-        public ICollection<Order> GetOrdersInDevelopment()
-        {
-            return _dbContext.Orders.Where(o => o.Status == Status.InDevelopment).ToList();
-        }
-
-        /// <summary>
-        ///     Новый метод для получения заказов с пагинацией  (x2 new)
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public OrderListResponse GetPagedOrders(OrderListRequest request)
-        {
-            var quest = _dbContext.Orders.AsQueryable();
-
-            //  Ты можешь сделать базовые проверки как пример
-
-            if (request.OrderDate != null)
-                quest = quest.Where(x => x.OrderDate == request.OrderDate);
-
-            var orderList = quest.GetPaginationResponse<Order, OrderListResponse, OrderListItems>(request, x => 
-            new OrderListItems
-            {
-               OrderId = x.Id,
-               Status = x.Status,
-            });
-
-            return orderList;
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using System.Net.Mime;
-using Domain.Entities;
+﻿using Domain.Entities;
 
-namespace Application.Interfaces;
-
-public interface IImageRepository:IRepository<Image>
+namespace Application.Interfaces
 {
-    
+    public interface IImageRepository : IRepository<Image>
+    {
+
+    }
 }

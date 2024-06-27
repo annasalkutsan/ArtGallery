@@ -2,9 +2,9 @@
 using AutoMapper;
 using Domain.Entities;
 
-namespace Application.MappingProfiles;
-
-public class PaintingProfile : Profile
+namespace Application.MappingProfiles
+{
+    public class PaintingProfile : Profile
     {
         public PaintingProfile()
         {
@@ -27,7 +27,7 @@ public class PaintingProfile : Profile
                 .ForMember(dest => dest.AuthorId, opt => opt.Ignore()) // Игнорируем AuthorId
                 .ForMember(dest => dest.Order, opt => opt.Ignore())    // Игнорируем Order
                 .ForMember(dest => dest.OrderId, opt => opt.Ignore()); // Игнорируем OrderId
-            
+
             CreateMap<Painting, PaintingResponse>()
                 .ForMember(dest => dest.CreationDate, opt => opt.MapFrom(src => src.CreationDate))
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
@@ -38,5 +38,6 @@ public class PaintingProfile : Profile
                 .ForMember(dest => dest.AuthorId, opt => opt.MapFrom(src => src.AuthorId))
                 .ForMember(dest => dest.OrderId, opt => opt.MapFrom(src => src.OrderId));
         }
-        
+
     }
+}

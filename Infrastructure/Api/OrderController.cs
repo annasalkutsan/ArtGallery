@@ -4,30 +4,13 @@ using Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Infrastructure.Api;
-
-
+namespace Infrastructure.Api
+{
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
     public class OrderController : ControllerBase
     {
-        [HttpGet("GetAll")]
-        public IActionResult GetAll([FromServices] OrderService orderService)
-        {
-            var orders = orderService.GetAll();
-            return Ok(orders);
-        }
-
-        [HttpGet("GetById")]
-        public IActionResult GetById(Guid id, [FromServices] OrderService orderService)
-        {
-            var order = orderService.GetById(id);
-            if (order == null)
-                return NotFound();
-            return Ok(order);
-        }
-
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] OrderCreateRequest orderCreateRequest, [FromServices] OrderService orderService)
         {
@@ -42,7 +25,6 @@ namespace Infrastructure.Api;
             }
         }
 
-
         [HttpPut("Update")]
         public async Task<IActionResult> Update([FromBody] OrderUpdateRequest orderUpdateRequest, [FromServices] OrderService orderService)
         {
@@ -52,13 +34,20 @@ namespace Infrastructure.Api;
             return Ok(updatedOrder);
         }
 
-        [HttpDelete("Delete")]
-        public IActionResult Delete(Guid id, [FromServices] OrderService orderService)
+        [HttpGet("GetAll")]
+        public IActionResult GetAll([FromServices][FromQuery] OrderService orderService)
         {
-            var deleted = orderService.Delete(id);
-            if (!deleted)
+            var orders = orderService.GetAll();
+            return Ok(orders);
+        }
+
+        [HttpGet("GetById")]
+        public IActionResult GetById(Guid id, [FromServices] OrderService orderService)
+        {
+            var order = orderService.GetById(id);
+            if (order == null)
                 return NotFound();
-            return Ok();
+            return Ok(order);
         }
 
         [HttpGet("GetOrdersNotStarted")]
@@ -81,12 +70,21 @@ namespace Infrastructure.Api;
             var orders = orderService.GetOrdersInDevelopment();
             return Ok(orders);
         }
-        
-        // Метод для получения заказов с пагинацией
+
         [HttpGet("GetPagedOrders")]
-        public IActionResult GetPagedOrders([FromBody] OrderListRequest request,[FromServices] OrderService orderService)
+        public IActionResult GetPagedOrders([FromBody] OrderListRequest request, [FromServices] OrderService orderService)
         {
             var pagedOrders = orderService.GetPagedOrders(request);
             return Ok(pagedOrders);
         }
+
+        [HttpDelete("Delete")]
+        public IActionResult Delete(Guid id, [FromServices] OrderService orderService)
+        {
+            var deleted = orderService.Delete(id);
+            if (!deleted)
+                return NotFound();
+            return Ok();
+        }
     }
+}

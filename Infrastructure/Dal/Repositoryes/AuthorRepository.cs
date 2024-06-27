@@ -2,60 +2,61 @@
 using Domain.Entities;
 using Infrastructure.Dal.EntityFramework;
 
-namespace Infrastructure.Dal.Repositoryes;
-
-public class AuthorRepository : IAuthorRepository
+namespace Infrastructure.Dal.Repositoryes
 {
-    private readonly ArtGalleryDbContext _dbContext; // замените на ваш контекст данных
-
-    public AuthorRepository(ArtGalleryDbContext dbContext)
+    public class AuthorRepository : IAuthorRepository
     {
-        _dbContext = dbContext;
-    }
+        private readonly ArtGalleryDbContext _dbContext; 
 
-    public Author GetById(Guid id)
-    {
-        return _dbContext.Authors.FirstOrDefault(a => a.Id == id);
-    }
-
-    public List<Author> GetAll()
-    {
-        return _dbContext.Authors.ToList();
-    }
-
-    public Author Create(Author entity)
-    {
-        _dbContext.Authors.Add(entity);
-        _dbContext.SaveChanges();
-        return entity;
-    }
-
-    public Author Update(Author entity)
-    {
-        _dbContext.Authors.Update(entity);
-        _dbContext.SaveChanges();
-        return entity;
-    }
-
-    public bool Delete(Guid id)
-    {
-        var author = _dbContext.Authors.FirstOrDefault(a => a.Id == id);
-        if (author != null)
+        public AuthorRepository(ArtGalleryDbContext dbContext)
         {
-            _dbContext.Authors.Remove(author);
-            _dbContext.SaveChanges();
-            return true;
+            _dbContext = dbContext;
         }
-        return false;
-    }
 
-    public async Task SaveChanges()
-    {
-        await _dbContext.SaveChangesAsync();
-    }
+        public Author Create(Author entity)
+        {
+            _dbContext.Authors.Add(entity);
+            _dbContext.SaveChanges();
+            return entity;
+        }
 
-    public ICollection<Painting> GetAuthorPaintings(Guid authorId)
-    {
-        return _dbContext.Paintings.Where(p => p.AuthorId == authorId).ToList();
+        public Author Update(Author entity)
+        {
+            _dbContext.Authors.Update(entity);
+            _dbContext.SaveChanges();
+            return entity;
+        }
+
+        public Author GetById(Guid id)
+        {
+            return _dbContext.Authors.FirstOrDefault(a => a.Id == id);
+        }
+
+        public List<Author> GetAll()
+        {
+            return _dbContext.Authors.ToList();
+        }
+
+        public ICollection<Painting> GetAuthorPaintings(Guid authorId)
+        {
+            return _dbContext.Paintings.Where(p => p.AuthorId == authorId).ToList();
+        }
+
+        public bool Delete(Guid id)
+        {
+            var author = _dbContext.Authors.FirstOrDefault(a => a.Id == id);
+            if (author != null)
+            {
+                _dbContext.Authors.Remove(author);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public async Task SaveChanges()
+        {
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

@@ -1,14 +1,14 @@
-﻿using System.Net.Mime;
-
-namespace Domain.Entities;
-
-public class Image:BaseEntity
+﻿namespace Domain.Entities
 {
-    public Image(){}
-
-    public Image(string path, Painting? painting)
+    public class Image : BaseEntity
     {
-        Path = path;
+        public Image() { }
+
+        public Image(string path, Painting? painting)
+        {
+            Path = path;
+        }
+
+        public string Path { get; set; }
     }
-    public string Path { get; set; }
 }

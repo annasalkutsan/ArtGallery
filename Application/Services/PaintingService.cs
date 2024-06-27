@@ -3,7 +3,6 @@ using Application.DTO.User;
 using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
-using Domain.Primitives;
 
 namespace Application.Services
 {
@@ -19,21 +18,6 @@ namespace Application.Services
             _mapper = mapper;
             _imageService = imageService;
         }
-
-        public PaintingResponse GetById(Guid id)
-        {
-            var painting = _paintingRepository.GetById(id);
-            var response = _mapper.Map<PaintingResponse>(painting);
-            return response;
-        }
-
-        public List<PaintingResponse> GetAll()
-        {
-            var paintings = _paintingRepository.GetAll();
-            var response = _mapper.Map<List<PaintingResponse>>(paintings);
-            return response;
-        }
-
 
         public async Task<PaintingResponse> CreateAsync(PaintingUploadImageRequest request)
         {
@@ -80,15 +64,29 @@ namespace Application.Services
             return response;
         }
 
-        public bool Delete(Guid id)
+        public List<PaintingResponse> GetAll()
         {
-            return _paintingRepository.Delete(id);
+            var paintings = _paintingRepository.GetAll();
+            var response = _mapper.Map<List<PaintingResponse>>(paintings);
+            return response;
+        }
+
+        public PaintingResponse GetById(Guid id)
+        {
+            var painting = _paintingRepository.GetById(id);
+            var response = _mapper.Map<PaintingResponse>(painting);
+            return response;
         }
 
         public PaintingListResponse GetPagedPainting(PaintingListRequest request)
         {
             var paintings = _paintingRepository.GetPagedPainting(request);
             return paintings;
+        }
+
+        public bool Delete(Guid id)
+        {
+            return _paintingRepository.Delete(id);
         }
     }
 }

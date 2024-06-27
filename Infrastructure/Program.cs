@@ -1,12 +1,11 @@
+using Application;
+using Application.Authentications;
 using Application.Interfaces;
 using Infrastructure.Dal.EntityFramework;
 using Infrastructure.Dal.Repositoryes;
-using Microsoft.EntityFrameworkCore;
-using Application;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Application.Authentications;
-using Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,14 +19,7 @@ builder.Services.AddControllers();
 // Регистрация профилей AutoMapper
 builder.Services.AddMappings();
 // Регистрация сервисов
-//builder.Services.AddServiceApplication();
-
-builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<AuthorService>();
-builder.Services.AddScoped<PaintingService>();
-builder.Services.AddScoped<OrderService>();
-builder.Services.AddScoped<ImageService>();
-builder.Services.AddScoped<AuthService>();
+builder.Services.AddServiceApplication();
 
 // Получение строки подключения из конфигурационного файла
 var connectionString = builder.Configuration.GetConnectionString("ArtGalleryDatabase");
@@ -41,6 +33,8 @@ builder.Services.AddScoped<IPaintingRepository, PaintingRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IImageRepository, ImageRepository>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+
+builder.Services.AddCors();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
@@ -85,11 +79,11 @@ if (app.Environment.IsDevelopment())
 // Перенаправление HTTP-запросов на HTTPS
 app.UseHttpsRedirection();
 
-app.UseAuthentication(); 
-app.UseAuthorization();  
-
 // Добавление маршрутизации
 app.UseRouting();
+
+app.UseAuthentication();   
+app.UseAuthorization();   
 
 // Маршрутизация контроллеров
 app.MapControllers();

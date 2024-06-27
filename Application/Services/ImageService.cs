@@ -2,9 +2,9 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 
-namespace Application.Services;
-
-public class ImageService
+namespace Application.Services
+{
+    public class ImageService
     {
         private readonly IImageRepository _imageRepository;
         private readonly IMapper _mapper;
@@ -14,7 +14,6 @@ public class ImageService
             _imageRepository = imageRepository;
             _mapper = mapper;
         }
-
 
         public async Task<string> SaveImages(IFormFile file)
         {
@@ -34,5 +33,4 @@ public class ImageService
             return Path.Combine("images", fileName);
         }
     }
-    
-
+}

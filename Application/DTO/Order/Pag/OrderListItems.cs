@@ -10,6 +10,6 @@ namespace Application.DTO.Order.Pag
         //  Тут ты можешь изменить любой поле не важно, ГЛАВНОЕ НЕ ЗАБУДЬ ИЗМЕНИТ В OrderRepository способ заполнения OrderListItems
 
         public Guid OrderId { get; set; }
-        public Status Status { get; set; }
+        public EnumTypeStatus Status { get; set; }
     }
 }

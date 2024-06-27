@@ -34,6 +34,7 @@ namespace Application
             services.AddScoped<PaintingService>();
             services.AddScoped<OrderService>();
             services.AddScoped<ImageService>();
+            services.AddScoped<AuthService>();
 
             return services;
         }
